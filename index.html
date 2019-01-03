@@ -46,7 +46,12 @@ for(var c=0; c<brickColumnCount; c++) {
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseMoveHandler, false);
-
+document.addEventListener("touchstart", startDrag, false);
+// document.addEventListener("touchend", stopDrag, false);
+function startDrag(e){
+  paddleX = e.clientX || e.touches[0].clientX;
+  //  paddleY = e.clientY || e.touches[0].clientY;
+}
 function mouseMoveHandler(e) {
     var relativeX = e.clientX - canvas.offsetLeft;
     if(relativeX > 0 && relativeX < canvas.width) {
